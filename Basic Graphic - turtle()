@@ -1,0 +1,13 @@
+import turtle
+t = turtle.pen()     #create turtle_ having own direction(default: right)
+t.forward(100)       #.forward(distance)_go forward 100 pixels  
+t.clear()            #.clear()_ reset canvas
+t.reset()            #.reset()_ reset canvas
+
+t.left(90)           #.direction(degree)_ rotate
+t.backward(100)      #.backward(distance)_ go backward 100 pixels
+t.right(90)          
+t.forward(50)        
+t.left(90)
+t.forward(100)       #history remarked as line
+
