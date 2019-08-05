@@ -1,0 +1,56 @@
+#GUI1_ popup_ tkinter
+
+from tkinter import *           #tkinter로부터 모든것을 가져옴   =  import tkinter
+tk = tkinter.Tk()               #tkiner에서 Tk()가 기본코드
+tk.title("popup TITLE")         #Tk 객체가(앞.) 기본적으로 갖는 METHOD1(.뒤) 호출_ title
+tk.geometry("500x500+150")      #METHOD2 호출_ tkinter.Tk.geometry_ popup 가로X세로+margin
+tk.mainloop()                   #METHOD3 호출_ tkinter.Tk.mainloop_ popup 출력
+
+
+
+
+#GUI2_ popup = window_ including multiple widgets and frames_ tkinter
+#widget_ 윈도우 최상위 객체_ label, text box, button, ...
+#background color_ bg
+#foreground color_ fg
+
+from tkinter import *
+def clear1():                      #create FUNCTION
+        txt1.delete(0.0, END)      #delete(index1, index2)_ index1: 살려둘 글자 시작.끝_ 삭제할 구간의 시작
+        return                     #delete(index1, index2)_ index2: 삭제할 구간의 끝
+tk = tkinter.Tk()
+tk.title("popup = window TITLE")
+tk.geometry("300x300+10")
+lbl1 = Label(tk, text="Hello!")                      #METHOD4 호출_ tkinter.Label
+lbl1.pack()                                          #Label METHOD_ tkinter.Label.pack_ Label 출력
+txt1 = Text(tk, height=3, width=220, bg="#555500")   #METHOD5 호출_ tkinter.Text(popup객체, widht, height, bg, fg)_ textbox 생성
+txt1.delete(0.0, END)                                #METHOD5_ tkinter.Text.delete_ 
+txt1.pack()                                          #Text METHOD_ tkinter.Text.pack_ Text 출력
+btn1 = Button(tk, text="btn 내 글자", bg="#000000", command=clear1)
+                                                     #METHOD6 호출_ tkinter.Button_ command = click시 실행될 fuction name
+                                                     #METHOD6 호출_ tkinter.Button_ command = quit
+btn1.pack()                                          #Button METHOD_ tkinter.Button.pack_ Button 출력
+tk.mainloop() 
+
+
+
+
+#GUI3_ message box_ alram
+from tkinter import *
+import tkinter.messagebox
+root = Tk()
+root.withdraw()                                             #root window가 뜨지 x
+tkinter.messagebox.askyesnocancel(title="", message="")     #Yes / NO 버튼 자동 생성
+tkinter.messagebox.showinfo(title="", message="")
+
+#import as_ ver.코드 길이 축소
+import tkinter.messagebox as tkMSG
+tkMSG.showinfo(title="", message="")
+
+#예제1
+from tkinter import *
+root = Tk()
+t1 = Text(root, height=2, width=30)
+t1.config(fg="red")                                    #popup 디자인 가능
+t1.pack()
+root.mainloop()
