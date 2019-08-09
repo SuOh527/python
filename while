@@ -1,0 +1,45 @@
+#조건을 만족하는 동안에만 반복하라
+#while 조건식:
+#    반복실행 문장
+#for_ 반복횟수가 분명_ 반복시작과 끝이 분명_ 반복횟수가 조건을 만족할 때 끝
+#while_ 반복횟수가 불분명_ 반복시작과 끝이 불분명_ 반복의 결과가 조건을 만족할 때 끝
+#                      _ 반복횟수(변수)의 시작값을 사전에 설정해주어야함
+#     _ 횟수 제한 X_ 무한하게 반복될 수 있음_ while 1
+
+for i in range(1,4):
+    a = input("문자를 입력")
+    print(a)
+
+
+i=1
+while i<4:
+    a = input("문자를 입력")
+    print(a)
+    i += 1
+    
+    
+sum = 0
+i = 0
+while sum <= 2000:
+    i += 1
+    if i <= 100:
+        sum += i
+print("2000초과한 값=", i, "합계=", sum)
+
+
+
+#while 1_ 1=True_ True인 동안 반복하라_ 무한 루프
+#Keyboard Interrupt_ ctrl+C
+
+while 1:
+    print("안녕하세요")
+
+
+#break_ loop를 멈추는 한계를 loop결과로 설정
+sum = 0
+for i in range(1,101):
+    if(sum >= 2000):
+        break
+    else:
+        sum += i
+print("합계2000이 넘는 지점", i, "합계=", sum)
