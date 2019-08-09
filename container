@@ -1,0 +1,4 @@
+# list_ [int, "str" 공존 가능]_ [int, "str", [new list]  공존 가능]
+# empty list_ mylist=[]_ 추후 요소를 추가함_ 
+# tuple_ 
+
