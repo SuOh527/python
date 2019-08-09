@@ -1,0 +1,9 @@
+a = input("INPUT INTEGER = ")
+if i in range(0, 10, 1):
+    print(a, "*", i, "=", a*i)
+    
+    
+if i in range(0, 10, 1):
+    a = input("INPUT INTEGER = ")
+    print(a, "*", i, "=", a*i)
+    
