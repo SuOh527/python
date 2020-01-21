@@ -1,0 +1,221 @@
+"""parsing = 원하는 특정 값만 추출"""
+
+from bs4 import BeautifulSoup
+
+html = '''<html>
+    <head>
+        <title> BeautifulSoup test </title>
+    </head>
+    <body>
+        <div id='upper' class='test' custom='good'>
+            <h3 title='Good Content Title'> Contents Title </h3>
+            <p> Test contents </p>
+        </div>
+        <div id='lower' class='test' custom='nice'>
+            <p> Test Test Test 1</p>
+            <p> Test Test Test 2</p>
+            <p> Test Test Test 3</p>
+        </div>
+    </body>
+</html>'''
+
+
+
+soup = BeautifulSoup(html)
+soup.find('h3')
+
+
+
+"""검색하는 속성이 한번등장하는 경우"""
+
+tag = soup.find('h3')
+print(tag)
+tag.get_text()
+
+
+
+"""검색하는 속성이 반복등장하는 경우"""
+
+tag = soup.find_all('div')
+for X in tag:
+    print(str(X.get_text()))
+    
+    
+    
+"""검색하는 속성이 반복등장하는 경우"""
+"""attribute 검색"""
+
+tag = soup.find_all('div')
+for X in tag:
+    print(X['id'])
+    
+    
+    
+soup.find('p')
+soup.find('div')
+soup.find('div', custom='nice')
+soup.find('div', id='upper')
+soup.find('div', class='test')
+
+
+
+"""속성이 반복되는 경우, 가장 처음 검색결과만 출력"""
+soup.find('div', class_='test')
+
+
+
+"""다중 속성의 교집합을 찾는 경우 attrs 이용"""
+attrs = {'id':'upper', 'class':'test'}
+soup.find('div', attrs=attrs)
+
+
+
+"""속성의 합집합을 찾는 경우 find_all 이용, list type으로 결과 출력"""
+soup.find_all('div')
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+resp.text
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+resp.text
+
+soup = BeautifulSoup(resp.text)
+soup
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+resp.text
+
+soup = BeautifulSoup(resp.text)
+soup.find_all('h3', class_='tit_view')
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+resp.text
+
+soup = BeautifulSoup(resp.text)
+title = soup.find('h3', class_='tit_view')
+title.get_text()
+
+
+
+
+"""
+delete(url, args) : Sends a DELETE request to the specified url
+get(url, params, args) : Sends a GET request to the specified url
+head(url, args) : Sends a HEAD request to the specified url
+patch(url, data, args) : Sends a PATCH request to the specified url
+post(url, data, json, args) : Sends a POST request to the specified url
+put(url, data, args) : Sends a PUT request to the specified url
+request(method, url, args) : Sends a request of the specified method to the specified url
+"""
+
+"""
+find(), find_all(), find_parent(), find_parents(), find_next_sibling(), find_next_siblings(), find_previous_sibling(), find_previous_siblings(), find_next(), find_all_next()
+"""
+
+"""
+attrs={ } 이 안에 데이터는 사전 스타일로 쓰셔야 합니다. 
+'dmcf-pid'='NadCn69JMg' 이 아니라, 
+'dmcf-pid':'NadCn69JMg' 와 같이 쓰셔야 합니다. 
+따라서 다음과 같이 작성하시면 됩니다.
+mydata1 = soup.find('p', attrs={'dmcf-pid':'NadCn69JMg', 'dmcf-ptype':'general'})
+"""
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+soup = BeautifulSoup(resp.text)
+thumb = soup.find('p', attrs={'dmcf-pid' : 'jAtgTBFhbP'})
+
+thumb.get_text()
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+soup = BeautifulSoup(resp.text)
+
+soup.find_all('span', class_='txt_info')[0]
+soup.find_all('span', class_='txt_info')[1]
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+soup = BeautifulSoup(resp.text)
+
+FIND = soup.find('span', class_='txt_info')
+FIND
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+soup = BeautifulSoup(resp.text)
+
+FIND = soup.find('div', id='harmonyContainer')
+FIND.find_all('strong')
+
+
+
+
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+soup = BeautifulSoup(resp.text)
+
+"""contents = contents + p.get_text()"""
+
+FIND = soup.find('div', id='harmonyContainer')
+contents = ' '
+for p in FIND.find_all('p'):
+    contents += p.get_text()
+    contents.strip()
+    
+contents
