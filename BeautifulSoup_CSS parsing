@@ -1,0 +1,69 @@
+from bs4 import BeautifulSoup
+import requests
+
+"""select : 만족하는 모든 css 검색
+    select_one : 만족하는 첫번째 css만 검색"""
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+
+soup = BeautifulSoup(resp.text)
+
+soup.select('strong')
+
+
+
+
+from bs4 import BeautifulSoup
+import request
+
+url = 'https://auto.v.daum.net/v/jdfPb6GDYn'
+resp = requests.get(url)
+
+soup = BeautifulSoup(resp.text)
+
+"""(부모 tag)div & (id)harmonyContainer & (자식 tag)strong"""
+strong = soup.select('div#harmonyContainer strong')
+
+
+
+
+"""(부모 tag)div & (id 단축키#)harmonyContainer & (직계자손 tag)strong"""
+soup.select('div#harmonyContainer > strong')
+
+
+
+
+"""
+a = ['I', 'love', 'BTS']
+b = ['Jungkook', 'Jimin', 'Sugar']
+for a,b in zip(a,b):
+  print(a,b)
+
+a = ['I', 'love', 'BTS']
+b = ['Jungkook', 'Jimin', 'Sugar']
+for i, (a,b) in enumerate(zip(a,b)):
+  print(i, a,b)
+"""
+
+strong = soup.select('div#harmonyContainer strong')
+for i in enumerate(strong):
+    print(i)
+    
+
+strong = soup.select('div#harmonyContainer strong')
+for index,value in enumerate(strong):
+    print(index,value)
+    
+    
+"""(tag)h3 & (class 단축키.)tit_view"""
+soup.select('h3.tit_view')
+
+"""(tag)h3 & [class=" "]"""
+soup.select('h3[class="tit_view"]')
+
+soup.select('h3[class^="ti"]')
+
+soup.select('h3[class$="ew"]')
+
+soup.select('span.txt_info')[1]
