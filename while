@@ -1,10 +1,17 @@
 # 조건을 만족하는 동안에만 반복
 # while 조건식:
 #     반복실행 문장
-# for_ 반복횟수가 분명_ 반복시작과 끝이 분명_ 반복횟수가 조건을 만족할 때 끝
-# while_ 반복횟수가 불분명_ 반복시작과 끝이 불분명_ 반복의 결과가 조건을 만족할 때 끝
-#                        _ 반복횟수(변수)의 시작값을 사전에 설정해주어야함
-#      _ 횟수 제한 X_ 무한하게 반복될 수 있음_ while 1
+
+# for
+# 반복 횟수 (반복 시작과 끝) 분명
+# 반복 횟수가 조건을 만족할 때 끝
+
+# while
+# 반복 횟수 (반복 시작과 끝) 불분명
+# 반복의 결과가 조건을 만족할 때 끝
+# 반복 횟수(변수)의 시작값을 사전에 설정해주어야함
+# 횟수 제한 X, 무한하게 반복될 수 있음
+# 가령, while 1
 
 for i in range(1,4):
     a = input("문자를 입력")
@@ -67,14 +74,16 @@ for i in range(1,11):
         continue
     print(i)
 
-# case1
+
+# 예1
 import time
 import winsound
 winsound.Beep(500, 350)     #winsound.Beep(frequencyHZ,duration)
 time.sleep(3)
 print("SOUND FINISHED")
 
-# case2
+
+# 예2
 import time
 import winsound
 for i in range(1,11):
@@ -82,8 +91,10 @@ for i in range(1,11):
         winsound.Beep(1000,400)
         continue
     print(i)
-    
-# case3_ 50까지의 짝수 합계_ 답 650
+
+
+# 예3
+# 50까지의 짝수 합계_ 답 650
 sum = 0
 for i in range(1,5):
     if i%2 == 1:
@@ -91,7 +102,9 @@ for i in range(1,5):
     sum += i
 print(sum)            
 
-# case4_ 50까지의 짝수 합계_ 답 650
+
+# 예4 
+# 50까지의 짝수 합계_ 답 650
 sum = 0
 for i in range(0,51,2):
     sum += i
